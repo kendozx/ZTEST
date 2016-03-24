@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<Module>  
+    <ModulePrefs title="Google Maps Subscriber" height="250">  
+        <Require feature="sap-context" />  
+    </ModulePrefs>  
+    <Content type="html">  
+        <![CDATA[  
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" >  
+<head>  
+          <script language="JavaScript">  
+    var subId;  
+    var isSub = false;  
+    var googleMapUrlPrefix = "http://maps.google.com/maps?z=7&output=embed&t=m&q=";  
+    function updateMap (topic, context) {  
+       document.getElementById('mapIframe').src = googleMapUrlPrefix + (context.getPropertyByKey("businessLocation")[0] || "Germany");  
+    }  
+          /* 
+           * Subscribe to Site Context using sap-context feature. 
+           */  
+    function subscribe() {  
+        subId = gadgets.sapcontext.subscribe(updateMap);  
+    }  
+          /* 
+           * Unsubscribe to Site Context using sap-context feature. 
+           */  
+    function unsubscribe() {  
+        gadgets.sapcontext.unsubscribe(subId);  
+        isSub = false;  
+    }  
+</script>  
+</head>  
+<body  bgcolor="white" style="font-family:Arial;">  
+                    <div id="googleMap" style="height:100%; width:100%">  
+                        <iframe id="mapIframe" frameBorder="0" src="http://maps.google.com/maps?z=8&t=m&output=embed&q=israel" style="height:100%; width:100%"></iframe>  
+        </div>  
+        <script language="javascript" type="text/javascript">  
+                              gadgets.sapcontext.registerOnContextLoad(subscribe);  
+                    </script>  
+          </body>  
+</html>  
+]]>  
+    </Content>  
+</Module>  
