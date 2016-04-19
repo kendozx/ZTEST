@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!-- Tutorial_05_Voting (XML, HTML, CSS, JavaScript) -->
 <Module specificationVersion='2'>
-	<ModulePrefs title="WebEx without HCP (iFrame)" height="250">
+	<ModulePrefs title="WebEx without HCP (iFrame)" height="600">
     </ModulePrefs>
     <Content type="html" href="main.html"/>
 </Module >
